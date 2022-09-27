@@ -1,11 +1,18 @@
+import styled from 'styled-components';
 import logo from './logo.svg';
 import './App.css';
+
+const MyButton = styled.button`
+  padding: 30px;
+  border: 2px solid blue;
+`;
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <MyButton>My Button</MyButton>
         <p>
           Edit <code>src/App.js</code> and save to reload2.
         </p>
