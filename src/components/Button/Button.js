@@ -9,7 +9,7 @@ const Button = styled.button`
   border-radius: 50px;
   font-family: 'Montserrat';
   font-weight: 600;
-  font-size: 16px;
+  font-size: 1.6rem;
   text-transform: uppercase;
 
   ${({ secondary }) =>
@@ -18,7 +18,7 @@ const Button = styled.button`
       background-color: #e6e6e6;
       width: 105px;
       height: 30px;
-      font-size: 10px;
+      font-size: 1rem;
     `}
 `;
 
