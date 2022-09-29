@@ -1,7 +1,7 @@
-import { createGlobalStyle, css } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
-const GlobalStyle = createGlobalStyle`${css`
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
+const GlobalStyle = createGlobalStyle`
+  //@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
 
   *,
   *::before,
@@ -17,9 +17,12 @@ const GlobalStyle = createGlobalStyle`${css`
 
   body {
     font-size: 1.6rem;
-    font-family: 'Monsterrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
   }
-`}
+
+  button {
+    font-family: 'Montserrat';
+  }
 `;
 
 export default GlobalStyle;
