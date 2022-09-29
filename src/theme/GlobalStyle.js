@@ -21,7 +21,6 @@ const GlobalStyle = createGlobalStyle`
   }
 
   button {
-    font-family: 'Montserrat';
   }
 `;
 
