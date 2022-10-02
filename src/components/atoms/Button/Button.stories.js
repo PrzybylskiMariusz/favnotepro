@@ -8,6 +8,5 @@ export default {
   component: Button,
 };
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 export const Primary = () => <Button>Hello</Button>;
 export const Secondary = () => <Button secondary>Hello</Button>;

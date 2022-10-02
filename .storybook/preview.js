@@ -8,17 +8,27 @@
   },
 }; */
 import React from 'react';
+import { ThemeProvider } from 'styled-components';
+import { theme } from 'theme/mainTheme';
 import GlobalStyle from 'theme/GlobalStyle';
 
 export const decorators = [
   (Story) => (
     <>
       <GlobalStyle />
-      <Story />
+      <ThemeProvider theme={theme}>
+        <Story />
+      </ThemeProvider>
     </>
   ),
 ];
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
+  controls: {
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/,
+    },
+  },
 };

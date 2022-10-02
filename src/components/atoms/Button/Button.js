@@ -2,12 +2,12 @@ import styled, { css } from 'styled-components';
 
 const Button = styled.button`
   padding: 0;
-  background-color: #ffd82b;
+  background-color: ${({ theme }) => theme.primary};
   width: 220px;
   height: 47px;
   border: none;
   border-radius: 50px;
-  font-weight: 600;
+  font-weight: ${({ theme }) => theme.bold};
   font-family: 'Montserrat';
   font-size: 1.6rem;
   text-transform: uppercase;
@@ -15,7 +15,7 @@ const Button = styled.button`
   ${({ secondary }) =>
     secondary &&
     css`
-      background-color: #e6e6e6;
+      background-color: ${({ theme }) => theme.grey200};
       width: 105px;
       height: 30px;
       font-size: 1rem;
@@ -23,3 +23,4 @@ const Button = styled.button`
 `;
 
 export default Button;
+// background-color: ${({ color }) => color || 'hsl(49, 100%, 58%)'};
