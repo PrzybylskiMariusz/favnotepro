@@ -8,5 +8,5 @@ export default {
   component: Button,
 };
 
-export const Primary = () => <Button>Hello</Button>;
-export const Secondary = () => <Button secondary>Hello</Button>;
+export const Primary = () => <Button>close / save</Button>;
+export const Secondary = () => <Button secondary>remove</Button>;
