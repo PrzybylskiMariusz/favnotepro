@@ -10,7 +10,7 @@ const InfoText = styled.p`
     css`
       font-size: ${({ theme }) => theme.fontSize.l};
       line-height: 1.8rem;
-      color: ${({ theme }) => theme.color.grey300};
+      color: ${({ theme }) => theme.grey300};
     `}
 `;
 

@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.color.primary};
+  background-color: ${({ theme }) => theme.note};
   width: 200px;
   height: 200px;
 `;

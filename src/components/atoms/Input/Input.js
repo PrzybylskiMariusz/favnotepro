@@ -7,12 +7,12 @@ const Input = styled.input`
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   border: none;
   border-radius: 50px;
-  background-color: ${({ theme }) => theme.color.grey100};
+  background-color: ${({ theme }) => theme.grey100};
   font-family: 'Montserrat';
 
   ::placeholder {
     text-transform: uppercase;
-    color: ${({ theme }) => theme.color.grey300};
+    color: ${({ theme }) => theme.grey300};
     letter-spacing: 1px;
   }
 

@@ -8,6 +8,7 @@ const TextButton = styled.button`
   border: none;
   background-color: transparent;
   font-family: 'Montserrat';
+  cursor: pointer;
 `;
 
 export default TextButton;
