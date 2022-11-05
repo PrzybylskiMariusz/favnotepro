@@ -8,11 +8,13 @@
   },
 }; */
 import React from 'react';
+import { withRouter } from 'storybook-addon-react-router-v6';
 import { ThemeProvider } from 'styled-components';
 import { theme } from 'theme/mainTheme';
 import GlobalStyle from 'theme/GlobalStyle';
 
 export const decorators = [
+  withRouter,
   (Story) => (
     <>
       <GlobalStyle />

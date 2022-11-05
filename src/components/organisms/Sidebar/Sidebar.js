@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import styled, { css } from 'styled-components';
+import PropTypes from 'prop-types';
+import { Link, NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 import bulbIcon from 'assets/icons/bulb.svg';
 import twitterIcon from 'assets/icons/twitter.svg';
 import penIcon from 'assets/icons/pen.svg';
@@ -12,20 +13,24 @@ const StyledSidebarWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   height: 100vh;
-  width: 154px;
+  width: 150px;
   padding: 35px 0;
   background-color: ${({ activeColor, theme }) => (activeColor ? theme[activeColor] : theme.note)};
+  position: fixed;
+  left: 0;
 `;
 
 const LogoButton = styled(IconButton)`
   width: 72px;
   height: 42px;
   background-size: 70%;
-  margin: 20px 0;
+  margin: 20px 0 10vh;
 `;
 
 const StyledLogoutButton = styled(IconButton)`
+  margin-top: auto;
   background-size: 55%;
 `;
 
@@ -37,40 +42,30 @@ const StyledLinkItem = styled.li`
   margin: 25px 0;
 `;
 
-const StyledInnerWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 50%;
-  justify-content: space-between;
-
-  ${({ bottom }) =>
-    bottom &&
-    css`
-      justify-content: flex-end;
-      height: 50%;
-    `}
-`;
-
-const Sidebar = () => (
-  <StyledSidebarWrapper>
-    <StyledInnerWrapper>
-      <LogoButton as={Link} to="/" icon={logoImage} />
-      <StyledLinksList>
-        <StyledLinkItem>
-          <IconButton as={Link} to="/" icon={penIcon} />
-        </StyledLinkItem>
-        <StyledLinkItem>
-          <IconButton as={Link} to="twitters" icon={twitterIcon} />
-        </StyledLinkItem>
-        <StyledLinkItem>
-          <IconButton as={Link} to="articles" icon={bulbIcon} />
-        </StyledLinkItem>
-      </StyledLinksList>
-    </StyledInnerWrapper>
-    <StyledInnerWrapper bottom>
-      <StyledLogoutButton as={Link} to="/" icon={logoutIcon} />
-    </StyledInnerWrapper>
+const Sidebar = ({ pageType }) => (
+  <StyledSidebarWrapper activeColor={pageType}>
+    <LogoButton as={Link} to="/" icon={logoImage} />
+    <StyledLinksList>
+      <StyledLinkItem>
+        <IconButton as={NavLink} to="/" icon={penIcon} activeclass="active" />
+      </StyledLinkItem>
+      <StyledLinkItem>
+        <IconButton as={NavLink} to="/twitters" icon={twitterIcon} activeclass="active" />
+      </StyledLinkItem>
+      <StyledLinkItem>
+        <IconButton as={NavLink} to="/articles" icon={bulbIcon} activeclass="active" />
+      </StyledLinkItem>
+    </StyledLinksList>
+    <StyledLogoutButton as={Link} to="/login" icon={logoutIcon} />
   </StyledSidebarWrapper>
 );
+
+Sidebar.propTypes = {
+  pageType: PropTypes.oneOf(['note', 'twitter', 'article']),
+};
+
+Sidebar.defaultProps = {
+  pageType: 'note',
+};
 
 export default Sidebar;
