@@ -1,11 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import Sidebar from 'components/organisms/Sidebar/Sidebar';
+import Input from 'components/atoms/Input/Input';
+import Heading from 'components/atoms/Heading/Heading';
+import InfoText from 'components/atoms/InfoText/InfoText';
+
+const StyledWrapper = styled.div`
+  padding: 60px 160px 30px 70px;
+`;
+
+const StyledGridWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 70px;
+  margin: 50px 0px;
+`;
 
 const UserPageTemplate = ({ children, pageType }) => (
   <>
     <Sidebar pageType={pageType} />
-    {children}
+    <StyledWrapper>
+      <Input search placeholder="Search" />
+      <Heading big as="h1">
+        Notes
+      </Heading>
+      <InfoText big>12 notes</InfoText>
+      <StyledGridWrapper>{children}</StyledGridWrapper>
+    </StyledWrapper>
   </>
 );
 

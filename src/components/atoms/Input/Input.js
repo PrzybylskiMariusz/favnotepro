@@ -21,6 +21,7 @@ const Input = styled.input`
     css`
       font-size: ${({ theme }) => theme.fontSize.s};
       padding: 10px 43px;
+      margin-bottom: 30px;
       background-image: url(${magnifierIcon});
       background-repeat: no-repeat;
       background-position: 14px 50%;
