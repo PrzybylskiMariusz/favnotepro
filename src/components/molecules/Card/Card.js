@@ -61,20 +61,19 @@ const StyledLinkButton = styled.a`
   transform: translateY(-50%);
 `;
 
-const Card = ({ cardType }) => (
+const Card = ({ cardType, title, created, twitterName, articleUrl, content }) => (
   <StyledWrapper>
     <InnerWrapper activeColor={cardType}>
-      <Heading>Hello Roman</Heading>
-      <InfoText>3 days</InfoText>
-      {cardType === 'twitter' && <StyledAvatar src="https://unavatar.io/twitter/hello_roman" />}
-      {cardType === 'article' && <StyledLinkButton href="https://youtube.com/helloroman" />}
+      <Heading>{title}</Heading>
+      <InfoText>{created}</InfoText>
+      {cardType === 'twitter' && (
+        <StyledAvatar src={`https://unavatar.io/twitter/${twitterName}`} />
+      )}
+      {cardType === 'article' && <StyledLinkButton href={articleUrl} />}
     </InnerWrapper>
     <InnerWrapper flex>
       <div>
-        <Paragraph>
-          Miles Dewey Davis III (May 26, 1926 – September 28, 1991) was an American jazz trumpeter,
-          bandleader, and composer.
-        </Paragraph>
+        <Paragraph>{content}</Paragraph>
         <TextButton>read more</TextButton>
       </div>
       <Button secondary>Remove</Button>
@@ -84,10 +83,17 @@ const Card = ({ cardType }) => (
 
 Card.propTypes = {
   cardType: PropTypes.oneOf(['note', 'twitter', 'article']),
+  title: PropTypes.string.isRequired,
+  created: PropTypes.string.isRequired,
+  twitterName: PropTypes.string,
+  articleUrl: PropTypes.string,
+  content: PropTypes.string.isRequired,
 };
 
 Card.defaultProps = {
   cardType: 'note',
+  twitterName: null,
+  articleUrl: null,
 };
 
 export default Card;
